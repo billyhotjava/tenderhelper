@@ -95,52 +95,56 @@ export const BidInfo = () => {
     }
   };
 
-  const handleStartCompute = async () => {
+  const startCompute = async () => {
     const requestData = {
       sectionType,
       declineRatio,
       n1,
       n2,
     };
-    await fetch('/api/bid-infos/batch-computing', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestData),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json(); // 如果服务器返回了json数据
-      })
-      .then(data => {
-        // console.log("Compute started successfully", data);
-      })
-      .catch(error => {
-        // console.error("Error starting compute:", error);
+    try {
+      const response = await fetch('/api/bid-infos/batch-computing', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
       });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      await response.json(); // 如果服务器返回了json数据
+    } catch (error) {
+      // console.error("Error starting compute:", error);
+    }
     handleSyncList();
   };
 
-  const handleDeleteAllData = async () => {
-    await fetch('/api/bid-infos/deleteAllData', {
-      method: 'DELETE',
-      // 如果有其他配置，如headers、body等，也可以在此添加
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json(); // 如果服务器返回了json数据
-      })
-      .catch(error => {
-        // console.error("Error starting compute:", error);
+  const handleStartCompute = () => {
+    startCompute();
+  };
+
+  const deleteAllData = async () => {
+    try {
+      const response = await fetch('/api/bid-infos/deleteAllData', {
+        method: 'DELETE',
+        // 如果有其他配置，如headers、body等，也可以在此添加
       });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      await response.json(); // 如果服务器返回了json数据
+    } catch (error) {
+      // console.error("Error starting compute:", error);
+    }
 
     // 删除成功后，调用handleSyncList来刷新Table数据
     handleSyncList();
+  };
+
+  const handleDeleteAllData = () => {
+    deleteAllData();
   };
 
   return (
