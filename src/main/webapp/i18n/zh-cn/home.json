@@ -1,19 +1,24 @@
 {
   "home": {
-    "title": "欢迎, Java Hipster!",
+    "title": "欢迎, 投标助手!",
     "subtitle": "这里是首页",
+    "helper": "欢迎来到投标助手,请导入数据",
+    "chooser": "请选择本地的Excel文件",
+    "uploadbtn": "请导入",
     "logged": {
       "message": "您目前是以 \"{{username}}\" 账号登录."
     },
-    "question": "如果您有任何有关 JHipster 的问题, 可以查阅下列资源:",
+    "question": "如果您有任何有关 Tender Helper的问题, 可以查阅下列资源:",
     "link": {
-      "homepage": "JHipster 首頁",
-      "stackoverflow": "Stack Overflow 上关于 JHipster 的讨论",
-      "bugtracker": "JHipster 的缺陷追踪",
-      "chat": "JHipster public chat room",
-      "follow": "在 Twitter 上联络 @jhipster"
+      "homepage": "首頁",
+      "stackoverflow": "Stack Overflow 上关于 Helper 的讨论",
+      "bugtracker": "Helper 的缺陷追踪",
+      "chat": "Helper public chat room",
+      "follow": "在 Twitter 上联络 @yuzhicloud"
     },
-    "like": "如果您喜欢 JHipster, 请记得给我们加星在",
-    "github": "GitHub"
+    "like": "如果您喜欢 Helper, 请记得给我们加星在",
+    "github": "GitHub",
+    "excel": "Excel 文件地址",
+    "excellink": "点击这里上传 Excel"
   }
 }

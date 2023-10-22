@@ -1,19 +1,24 @@
 {
   "home": {
-    "title": "Welcome, Java Hipster!",
+    "title": "Welcome, Tender Helper!",
     "subtitle": "This is your homepage",
+    "helper": "Welcome to Tender Helper",
+    "chooser": "Please choose local excel file",
+    "uploadbtn": "Please upload",
     "logged": {
       "message": "You are logged in as user \"{{username}}\"."
     },
     "question": "If you have any question on JHipster:",
     "link": {
-      "homepage": "JHipster homepage",
-      "stackoverflow": "JHipster on Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "JHipster public chat room",
-      "follow": "follow @jhipster on Twitter"
+      "homepage": "Helper homepage",
+      "stackoverflow": "Helper on Stack Overflow",
+      "bugtracker": "Helper bug tracker",
+      "chat": "Helper public chat room",
+      "follow": "follow @yuzhicloud on Twitter"
     },
-    "like": "If you like JHipster, don't forget to give us a star on",
-    "github": "GitHub"
+    "like": "If you like Helper , don't forget to give us a star on",
+    "github": "GitHub",
+    "excel": "Excel File",
+    "excellink": "Click here to upload Excel File"
   }
 }

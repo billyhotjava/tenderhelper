@@ -1,0 +1,40 @@
+{
+  "tenderhelperApp": {
+    "bidInfo": {
+      "home": {
+        "title": "Bid Infos",
+        "refreshListLabel": "Refresh list",
+        "oneKeyCompute": "Process Bid",
+        "deleteAllData": "Delete All Data",
+        "createLabel": "Create a new Bid Info",
+        "createOrEditLabel": "Create or edit a Bid Info",
+        "notFound": "No Bid Infos found"
+      },
+      "created": "A new Bid Info is created with identifier {{ param }}",
+      "updated": "A Bid Info is updated with identifier {{ param }}",
+      "deleted": "A Bid Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bid Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Bid Info"
+      },
+      "id": "ID",
+      "bidPrjId": "Bid Prj Id",
+      "bidPrjName": "Bid Prj Name",
+      "bidSectionId": "Bid Section Id",
+      "bidSection": "Bid Section",
+      "bidder": "Bidder",
+      "bidPrice": "Bid Price",
+      "averageValue": "Average Value",
+      "declineRatio": "Decline Ratio",
+      "basePrice": "Base Price",
+      "benchmarkScore": "Benchmark Score",
+      "sectionType": "Section Type",
+      "sectionTypeServer": "Computing Server",
+      "sectionTypeStorage": "Storage Server",
+      "n1Value": "N1 Value",
+      "n2Value": "N2 Value"
+    }
+  }
+}

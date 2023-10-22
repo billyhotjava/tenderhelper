@@ -1,0 +1,16 @@
+entity BidInfo {
+    bidPrjId String
+ 	bidPrjName String  //投标项目名称，需录入
+    bidSectionId String
+	bidSection String   //项目的分标名称，需录入
+	bidder String    //投标人名称,需录入
+    bidPrice BigDecimal    //投标总价,需录入
+    averageValue BigDecimal   //有效报价的平均值
+    declineRatio BigDecimal   //下浮比例
+    basePrice BigDecimal   //基准价，计算后得出
+    benchmarkScore BigDecimal //基准评分，计算后得出
+}
+
+paginate BidInfo with pagination
+
+service all with serviceImpl

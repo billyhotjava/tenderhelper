@@ -1,0 +1,40 @@
+{
+  "tenderhelperApp": {
+    "bidInfo": {
+      "home": {
+        "title": "投标数据",
+        "refreshListLabel": "手动刷新",
+        "createLabel": "创建投标记录",
+        "oneKeyCompute": "开始计算",
+        "deleteAllData": "删除所有数据",
+        "createOrEditLabel": "创建或编辑投标数据",
+        "notFound": "找不到投标数据"
+      },
+      "created": "Bid Info {{ param }} 创建成功",
+      "updated": "Bid Info {{ param }} 更新成功",
+      "deleted": "Bid Info {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Bid Info {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "投标数据"
+      },
+      "id": "ID",
+      "bidPrjId": "项目编号",
+      "bidPrjName": "项目名称",
+      "bidSectionId": "分标编号",
+      "bidSection": "分标名称",
+      "bidder": "投标人",
+      "bidPrice": "投标总价",
+      "averageValue": "平均价",
+      "declineRatio": "下浮比例",
+      "basePrice": "基准价",
+      "benchmarkScore": "基准评分",
+      "sectionType": "分标类型",
+      "sectionTypeServer": "服务器",
+      "sectionTypeStorage": "存储",
+      "n1Value": "N1值",
+      "n2Value": "N2值"
+    }
+  }
+}

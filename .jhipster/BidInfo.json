@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20231017061606",
+  "entityTableName": "bid_info",
+  "fields": [
+    {
+      "fieldName": "bidPrjId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bidPrjName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bidSectionId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bidSection",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bidder",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bidPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "averageValue",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "declineRatio",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "basePrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "benchmarkScore",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "name": "BidInfo",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,28 @@
+/* CSS styles */
+.mylabel,
+.myselect {
+  height: 30px; // 可以根据你的需要调整此值
+}
+
+.mylabel {
+  font-weight: 600;
+  font-size: 16px;
+  color: #0066cc;
+  margin-right: 5px;
+}
+
+.myselect {
+  font-weight: 400;
+  font-size: 16px;
+  color: #555;
+  padding: 5px 12px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: #f9f9f9;
+}
+
+.myselect:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}

@@ -1,0 +1,33 @@
+{
+  "tenderhelperApp": {
+    "bidInfo": {
+      "home": {
+        "title": "BidInfos",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Bid Info",
+        "createOrEditLabel": "Créer ou éditer un Bid Info",
+        "notFound": "Aucun Bid Info trouvé"
+      },
+      "created": "Un nouveau Bid Info a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Bid Info avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Bid Info avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Bid Info {{ id }} ?"
+      },
+      "detail": {
+        "title": "Bid Info"
+      },
+      "id": "ID",
+      "bidPrjId": "Bid Prj Id",
+      "bidPrjName": "Bid Prj Name",
+      "bidSectionId": "Bid Section Id",
+      "bidSection": "Bid Section",
+      "bidder": "Bidder",
+      "bidPrice": "Bid Price",
+      "averageValue": "Average Value",
+      "declineRatio": "Decline Ratio",
+      "basePrice": "Base Price",
+      "benchmarkScore": "Benchmark Score"
+    }
+  }
+}
