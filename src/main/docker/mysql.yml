@@ -10,7 +10,7 @@ services:
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=no
       - MYSQL_ROOT_PASSWORD=Devops123!
-      - MYSQL_DATABASE= tender
+      - MYSQL_DATABASE= tenderhelper
       - MYSQL_USER=mysql
       - MYSQL_PASSWORD=Devops123!
     # If you want to expose these ports outside your dev PC,
