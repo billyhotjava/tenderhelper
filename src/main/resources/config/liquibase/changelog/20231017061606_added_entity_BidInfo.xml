@@ -35,6 +35,12 @@
             <column name="average_value" type="decimal(21,6)">
                 <constraints nullable="true" />
             </column>
+            <column name="valid_price" type="decimal(21,6)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valid_average_value" type="decimal(21,6)">
+                <constraints nullable="true" />
+            </column>
             <column name="decline_ratio" type="double">
                 <constraints nullable="true" />
             </column>
@@ -42,6 +48,9 @@
                 <constraints nullable="true" />
             </column>
             <column name="benchmark_score" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="ranking" type="integer">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
@@ -60,10 +69,10 @@
     -->
     <changeSet id="20231017061606-1-data" author="jhipster" context="faker">
         <loadData
-            file="config/liquibase/fake-data/bid_info.csv"
-            separator=";"
-            tableName="bid_info"
-            usePreparedStatements="true">
+                  file="config/liquibase/fake-data/bid_info.csv"
+                  separator=";"
+                  tableName="bid_info"
+                  usePreparedStatements="true">
             <column name="id" type="numeric"/>
             <column name="bid_prj_id" type="string"/>
             <column name="bid_prj_name" type="string"/>
@@ -72,9 +81,12 @@
             <column name="bidder" type="string"/>
             <column name="bid_price" type="numeric"/>
             <column name="average_value" type="numeric"/>
-            <column name="decline_ratio" type="double"/>
+            <column name="valid_price" type="numeric"/>
+            <column name="valid_average_value" type="numeric"/>
+            <column name="decline_ratio" type="numeric"/>
             <column name="base_price" type="numeric"/>
-            <column name="benchmark_score" type="double"/>
+            <column name="benchmark_score" type="numeric"/>
+            <column name="ranking" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

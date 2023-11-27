@@ -14,7 +14,7 @@ const initialState: EntityState<IBidInfo> = {
   updateSuccess: false,
 };
 
-const apiUrl = 'api/bid-infos';
+const apiUrl = 'api/bid-infos/all';
 
 // Actions
 

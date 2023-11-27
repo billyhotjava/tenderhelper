@@ -137,6 +137,20 @@ export const BidInfoUpdate = () => {
                 type="text"
               />
               <ValidatedField
+                label={translate('tenderhelperApp.bidInfo.validPrice')}
+                id="bid-info-validPrice"
+                name="validPrice"
+                data-cy="validPrice"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('tenderhelperApp.bidInfo.validAverageValue')}
+                id="bid-info-validAverageValue"
+                name="validAverageValue"
+                data-cy="validAverageValue"
+                type="text"
+              />
+              <ValidatedField
                 label={translate('tenderhelperApp.bidInfo.declineRatio')}
                 id="bid-info-declineRatio"
                 name="declineRatio"
@@ -155,6 +169,13 @@ export const BidInfoUpdate = () => {
                 id="bid-info-benchmarkScore"
                 name="benchmarkScore"
                 data-cy="benchmarkScore"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('tenderhelperApp.bidInfo.ranking')}
+                id="bid-info-ranking"
+                name="ranking"
+                data-cy="ranking"
                 type="text"
               />
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/bid-info" replace color="info">

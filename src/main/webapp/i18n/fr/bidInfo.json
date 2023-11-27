@@ -25,9 +25,12 @@
       "bidder": "Bidder",
       "bidPrice": "Bid Price",
       "averageValue": "Average Value",
+      "validPrice": "Valid Price",
+      "validAverageValue": "Valid Average Value",
       "declineRatio": "Decline Ratio",
       "basePrice": "Base Price",
-      "benchmarkScore": "Benchmark Score"
+      "benchmarkScore": "Benchmark Score",
+      "ranking": "Ranking"
     }
   }
 }

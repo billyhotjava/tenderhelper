@@ -40,14 +40,23 @@ public class BidInfo implements Serializable {
     @Column(name = "average_value", precision = 21, scale = 6)
     private BigDecimal averageValue;
 
+    @Column(name = "valid_price", precision = 21, scale = 6)
+    private BigDecimal validPrice;
+
+    @Column(name = "valid_average_value", precision = 21, scale = 6)
+    private BigDecimal validAverageValue;
+
     @Column(name = "decline_ratio")
-    private double declineRatio;
+    private Double declineRatio;
 
     @Column(name = "base_price", precision = 21, scale = 6)
     private BigDecimal basePrice;
 
     @Column(name = "benchmark_score")
-    private double benchmarkScore;
+    private Double benchmarkScore;
+
+    @Column(name = "ranking")
+    private Integer ranking;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -155,16 +164,42 @@ public class BidInfo implements Serializable {
         this.averageValue = averageValue;
     }
 
-    public double getDeclineRatio() {
+    public BigDecimal getValidPrice() {
+        return this.validPrice;
+    }
+
+    public BidInfo validPrice(BigDecimal validPrice) {
+        this.setValidPrice(validPrice);
+        return this;
+    }
+
+    public void setValidPrice(BigDecimal validPrice) {
+        this.validPrice = validPrice;
+    }
+
+    public BigDecimal getValidAverageValue() {
+        return this.validAverageValue;
+    }
+
+    public BidInfo validAverageValue(BigDecimal validAverageValue) {
+        this.setValidAverageValue(validAverageValue);
+        return this;
+    }
+
+    public void setValidAverageValue(BigDecimal validAverageValue) {
+        this.validAverageValue = validAverageValue;
+    }
+
+    public Double getDeclineRatio() {
         return this.declineRatio;
     }
 
-    public BidInfo declineRatio(double declineRatio) {
+    public BidInfo declineRatio(Double declineRatio) {
         this.setDeclineRatio(declineRatio);
         return this;
     }
 
-    public void setDeclineRatio(double declineRatio) {
+    public void setDeclineRatio(Double declineRatio) {
         this.declineRatio = declineRatio;
     }
 
@@ -181,17 +216,30 @@ public class BidInfo implements Serializable {
         this.basePrice = basePrice;
     }
 
-    public double getBenchmarkScore() {
+    public Double getBenchmarkScore() {
         return this.benchmarkScore;
     }
 
-    public BidInfo benchmarkScore(double benchmarkScore) {
+    public BidInfo benchmarkScore(Double benchmarkScore) {
         this.setBenchmarkScore(benchmarkScore);
         return this;
     }
 
-    public void setBenchmarkScore(double benchmarkScore) {
+    public void setBenchmarkScore(Double benchmarkScore) {
         this.benchmarkScore = benchmarkScore;
+    }
+
+    public Integer getRanking() {
+        return this.ranking;
+    }
+
+    public BidInfo ranking(Integer ranking) {
+        this.setRanking(ranking);
+        return this;
+    }
+
+    public void setRanking(Integer ranking) {
+        this.ranking = ranking;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
@@ -225,9 +273,12 @@ public class BidInfo implements Serializable {
             ", bidder='" + getBidder() + "'" +
             ", bidPrice=" + getBidPrice() +
             ", averageValue=" + getAverageValue() +
+            ", validPrice=" + getValidPrice() +
+            ", validAverageValue=" + getValidAverageValue() +
             ", declineRatio=" + getDeclineRatio() +
             ", basePrice=" + getBasePrice() +
             ", benchmarkScore=" + getBenchmarkScore() +
+            ", ranking=" + getRanking() +
             "}";
     }
 }

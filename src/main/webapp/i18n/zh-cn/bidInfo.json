@@ -8,7 +8,8 @@
         "oneKeyCompute": "开始计算",
         "deleteAllData": "删除所有数据",
         "createOrEditLabel": "创建或编辑投标数据",
-        "notFound": "找不到投标数据"
+        "notFound": "找不到投标数据",
+        "allSectionID": "选择所有包"
       },
       "created": "Bid Info {{ param }} 创建成功",
       "updated": "Bid Info {{ param }} 更新成功",
@@ -27,9 +28,12 @@
       "bidder": "投标人",
       "bidPrice": "投标总价",
       "averageValue": "平均价",
+      "validPrice": "有效报价",
+      "validAverageValue": "有效平均价",
       "declineRatio": "下浮比例",
       "basePrice": "基准价",
       "benchmarkScore": "基准评分",
+      "ranking": "排名",
       "sectionType": "分标类型",
       "sectionTypeServer": "服务器",
       "sectionTypeStorage": "存储",

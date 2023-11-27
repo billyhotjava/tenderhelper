@@ -2,6 +2,7 @@ package com.yuzhi.tender.service;
 
 import com.yuzhi.tender.domain.BidInfo;
 import com.yuzhi.tender.service.dto.BidInfoComputeDTO;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -44,6 +45,13 @@ public interface BidInfoService {
     Page<BidInfo> findAll(Pageable pageable);
 
     /**
+     * Get all the bidInfos without pageable.
+     *
+     * @return the list of entities.
+     */
+    List<BidInfo> findAll();
+
+    /**
      * Get the "id" bidInfo.
      *
      * @param id the id of the entity.
@@ -62,6 +70,13 @@ public interface BidInfoService {
      * Delete all bidInfos
      */
     void deleteAll();
+
+    /**
+     * 计算有效报价
+     * @return List<BidInfo>
+     */
+    List<BidInfo> getValidPrice(List<BidInfo> bidInfos);
+    //List<BidInfo> getValidPrice();
     /**
      * 计算基准评分
      */

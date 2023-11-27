@@ -1,2 +1,11 @@
-id;bid_prj_id;bid_prj_name;bid_section_id;bid_section;bidder;bid_price;average_value;decline_ratio;base_price;benchmark_score
-1;yearningly sorbet swoosh;meter awe cry;meh;idle dabble;stitcher;5964.21;20871.07;0.08;25390.3;21357.42
+id;bid_prj_id;bid_prj_name;bid_section_id;bid_section;bidder;bid_price;average_value;valid_price;valid_average_value;decline_ratio;base_price;benchmark_score;ranking
+1;yearningly sorbet swoosh;meter awe cry;meh;idle dabble;stitcher;5964.21;20871.07;32270.8;25390.3;21357.42;11734.14;2002.42;3102
+2;imply well;meanwhile geez doorpost;er unless;across gorilla;daily louse subsidise;7521.73;22479.15;17114.66;7512.07;30062.43;3139.55;32214.68;20276
+3;extremely slowly;which segue tease;conversion;eek;bouncy safe;20848.54;3996;31716.23;3419.69;28764.63;29267.86;10958.7;12064
+4;brand if lychee;inasmuch zowie including;yowza even wildly;absent bewitched bawl;what hence;25731.53;31718.66;19984.38;29693.24;9297.6;27678.69;4076.49;12490
+5;gear coolly um;than;quickly reflection neatly;coaxingly;aside;31225.68;13595.1;7747.79;31265.65;27968.14;13843.05;31249.49;2359
+6;exterminate meh;pro oblong;freight delayed misguided;bah excluding now;fictionalize anti ugh;30693.53;26249.18;15975.29;9489.73;8342.76;23337.81;707.27;27487
+7;gratefully;oof worriedly;lightly abaft;instead oof anxiously;weakly linguist wind;2730.83;5644.31;12307.87;21591.09;8529.22;10846.77;17457.87;5963
+8;cofactor abaft;ditch until even;needy bad;so blank sympathetically;wrathful aha savings;20395.75;9580.93;30983.53;1600.85;2102.52;30696.12;6337.21;23164
+9;freely;huzzah meanwhile that;up what gracefully;adventurously;suspiciously hourly;12356.1;22619.29;17111.07;13190.89;6038.85;10598.14;25174.83;27301
+10;thickness whoever;bandage sneeze;imbibe ha;hmph;molecule modulo;406.88;11195.58;28535.93;29689.14;23172.83;26434.81;3459.53;32627

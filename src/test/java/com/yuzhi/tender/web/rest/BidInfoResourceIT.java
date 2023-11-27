@@ -2,7 +2,6 @@ package com.yuzhi.tender.web.rest;
 
 import static com.yuzhi.tender.web.rest.TestUtil.sameNumber;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -53,14 +52,23 @@ class BidInfoResourceIT {
     private static final BigDecimal DEFAULT_AVERAGE_VALUE = new BigDecimal(1);
     private static final BigDecimal UPDATED_AVERAGE_VALUE = new BigDecimal(2);
 
-    private static final double DEFAULT_DECLINE_RATIO = 1.00;
-    private static final double UPDATED_DECLINE_RATIO = 2.00;
+    private static final BigDecimal DEFAULT_VALID_PRICE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_VALID_PRICE = new BigDecimal(2);
+
+    private static final BigDecimal DEFAULT_VALID_AVERAGE_VALUE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_VALID_AVERAGE_VALUE = new BigDecimal(2);
+
+    private static final Double DEFAULT_DECLINE_RATIO = 1D;
+    private static final Double UPDATED_DECLINE_RATIO = 2D;
 
     private static final BigDecimal DEFAULT_BASE_PRICE = new BigDecimal(1);
     private static final BigDecimal UPDATED_BASE_PRICE = new BigDecimal(2);
 
-    private static final double DEFAULT_BENCHMARK_SCORE = 0.00;
-    private static final double UPDATED_BENCHMARK_SCORE = 2.00;
+    private static final Double DEFAULT_BENCHMARK_SCORE = 1D;
+    private static final Double UPDATED_BENCHMARK_SCORE = 2D;
+
+    private static final Integer DEFAULT_RANKING = 1;
+    private static final Integer UPDATED_RANKING = 2;
 
     private static final String ENTITY_API_URL = "/api/bid-infos";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -94,9 +102,12 @@ class BidInfoResourceIT {
             .bidder(DEFAULT_BIDDER)
             .bidPrice(DEFAULT_BID_PRICE)
             .averageValue(DEFAULT_AVERAGE_VALUE)
+            .validPrice(DEFAULT_VALID_PRICE)
+            .validAverageValue(DEFAULT_VALID_AVERAGE_VALUE)
             .declineRatio(DEFAULT_DECLINE_RATIO)
             .basePrice(DEFAULT_BASE_PRICE)
-            .benchmarkScore(DEFAULT_BENCHMARK_SCORE);
+            .benchmarkScore(DEFAULT_BENCHMARK_SCORE)
+            .ranking(DEFAULT_RANKING);
         return bidInfo;
     }
 
@@ -115,9 +126,12 @@ class BidInfoResourceIT {
             .bidder(UPDATED_BIDDER)
             .bidPrice(UPDATED_BID_PRICE)
             .averageValue(UPDATED_AVERAGE_VALUE)
+            .validPrice(UPDATED_VALID_PRICE)
+            .validAverageValue(UPDATED_VALID_AVERAGE_VALUE)
             .declineRatio(UPDATED_DECLINE_RATIO)
             .basePrice(UPDATED_BASE_PRICE)
-            .benchmarkScore(UPDATED_BENCHMARK_SCORE);
+            .benchmarkScore(UPDATED_BENCHMARK_SCORE)
+            .ranking(UPDATED_RANKING);
         return bidInfo;
     }
 
@@ -146,9 +160,12 @@ class BidInfoResourceIT {
         assertThat(testBidInfo.getBidder()).isEqualTo(DEFAULT_BIDDER);
         assertThat(testBidInfo.getBidPrice()).isEqualByComparingTo(DEFAULT_BID_PRICE);
         assertThat(testBidInfo.getAverageValue()).isEqualByComparingTo(DEFAULT_AVERAGE_VALUE);
-        assertThat(testBidInfo.getDeclineRatio()).isEqualByComparingTo(DEFAULT_DECLINE_RATIO);
+        assertThat(testBidInfo.getValidPrice()).isEqualByComparingTo(DEFAULT_VALID_PRICE);
+        assertThat(testBidInfo.getValidAverageValue()).isEqualByComparingTo(DEFAULT_VALID_AVERAGE_VALUE);
+        assertThat(testBidInfo.getDeclineRatio()).isEqualTo(DEFAULT_DECLINE_RATIO);
         assertThat(testBidInfo.getBasePrice()).isEqualByComparingTo(DEFAULT_BASE_PRICE);
-        assertThat(testBidInfo.getBenchmarkScore()).isEqualByComparingTo(DEFAULT_BENCHMARK_SCORE);
+        assertThat(testBidInfo.getBenchmarkScore()).isEqualTo(DEFAULT_BENCHMARK_SCORE);
+        assertThat(testBidInfo.getRanking()).isEqualTo(DEFAULT_RANKING);
     }
 
     @Test
@@ -188,9 +205,12 @@ class BidInfoResourceIT {
             .andExpect(jsonPath("$.[*].bidder").value(hasItem(DEFAULT_BIDDER)))
             .andExpect(jsonPath("$.[*].bidPrice").value(hasItem(sameNumber(DEFAULT_BID_PRICE))))
             .andExpect(jsonPath("$.[*].averageValue").value(hasItem(sameNumber(DEFAULT_AVERAGE_VALUE))))
-            .andExpect(jsonPath("$.[*].declineRatio").value(hasItem(sameNumber(BigDecimal.valueOf(DEFAULT_DECLINE_RATIO)))))
+            .andExpect(jsonPath("$.[*].validPrice").value(hasItem(sameNumber(DEFAULT_VALID_PRICE))))
+            .andExpect(jsonPath("$.[*].validAverageValue").value(hasItem(sameNumber(DEFAULT_VALID_AVERAGE_VALUE))))
+            .andExpect(jsonPath("$.[*].declineRatio").value(hasItem(DEFAULT_DECLINE_RATIO.doubleValue())))
             .andExpect(jsonPath("$.[*].basePrice").value(hasItem(sameNumber(DEFAULT_BASE_PRICE))))
-            .andExpect(jsonPath("$.[*].benchmarkScore").value(hasItem(sameNumber(BigDecimal.valueOf(DEFAULT_BENCHMARK_SCORE)))));
+            .andExpect(jsonPath("$.[*].benchmarkScore").value(hasItem(DEFAULT_BENCHMARK_SCORE.doubleValue())))
+            .andExpect(jsonPath("$.[*].ranking").value(hasItem(DEFAULT_RANKING)));
     }
 
     @Test
@@ -212,9 +232,12 @@ class BidInfoResourceIT {
             .andExpect(jsonPath("$.bidder").value(DEFAULT_BIDDER))
             .andExpect(jsonPath("$.bidPrice").value(sameNumber(DEFAULT_BID_PRICE)))
             .andExpect(jsonPath("$.averageValue").value(sameNumber(DEFAULT_AVERAGE_VALUE)))
-            .andExpect(jsonPath("$.declineRatio").value(equalTo(DEFAULT_DECLINE_RATIO)))
+            .andExpect(jsonPath("$.validPrice").value(sameNumber(DEFAULT_VALID_PRICE)))
+            .andExpect(jsonPath("$.validAverageValue").value(sameNumber(DEFAULT_VALID_AVERAGE_VALUE)))
+            .andExpect(jsonPath("$.declineRatio").value(DEFAULT_DECLINE_RATIO.doubleValue()))
             .andExpect(jsonPath("$.basePrice").value(sameNumber(DEFAULT_BASE_PRICE)))
-            .andExpect(jsonPath("$.benchmarkScore").value(equalTo(DEFAULT_BENCHMARK_SCORE)));
+            .andExpect(jsonPath("$.benchmarkScore").value(DEFAULT_BENCHMARK_SCORE.doubleValue()))
+            .andExpect(jsonPath("$.ranking").value(DEFAULT_RANKING));
     }
 
     @Test
@@ -244,9 +267,12 @@ class BidInfoResourceIT {
             .bidder(UPDATED_BIDDER)
             .bidPrice(UPDATED_BID_PRICE)
             .averageValue(UPDATED_AVERAGE_VALUE)
+            .validPrice(UPDATED_VALID_PRICE)
+            .validAverageValue(UPDATED_VALID_AVERAGE_VALUE)
             .declineRatio(UPDATED_DECLINE_RATIO)
             .basePrice(UPDATED_BASE_PRICE)
-            .benchmarkScore(UPDATED_BENCHMARK_SCORE);
+            .benchmarkScore(UPDATED_BENCHMARK_SCORE)
+            .ranking(UPDATED_RANKING);
 
         restBidInfoMockMvc
             .perform(
@@ -267,9 +293,12 @@ class BidInfoResourceIT {
         assertThat(testBidInfo.getBidder()).isEqualTo(UPDATED_BIDDER);
         assertThat(testBidInfo.getBidPrice()).isEqualByComparingTo(UPDATED_BID_PRICE);
         assertThat(testBidInfo.getAverageValue()).isEqualByComparingTo(UPDATED_AVERAGE_VALUE);
-        assertThat(testBidInfo.getDeclineRatio()).isEqualByComparingTo(UPDATED_DECLINE_RATIO);
+        assertThat(testBidInfo.getValidPrice()).isEqualByComparingTo(UPDATED_VALID_PRICE);
+        assertThat(testBidInfo.getValidAverageValue()).isEqualByComparingTo(UPDATED_VALID_AVERAGE_VALUE);
+        assertThat(testBidInfo.getDeclineRatio()).isEqualTo(UPDATED_DECLINE_RATIO);
         assertThat(testBidInfo.getBasePrice()).isEqualByComparingTo(UPDATED_BASE_PRICE);
-        assertThat(testBidInfo.getBenchmarkScore()).isEqualByComparingTo(UPDATED_BENCHMARK_SCORE);
+        assertThat(testBidInfo.getBenchmarkScore()).isEqualTo(UPDATED_BENCHMARK_SCORE);
+        assertThat(testBidInfo.getRanking()).isEqualTo(UPDATED_RANKING);
     }
 
     @Test
@@ -340,7 +369,13 @@ class BidInfoResourceIT {
         BidInfo partialUpdatedBidInfo = new BidInfo();
         partialUpdatedBidInfo.setId(bidInfo.getId());
 
-        partialUpdatedBidInfo.bidSection(UPDATED_BID_SECTION).bidPrice(UPDATED_BID_PRICE);
+        partialUpdatedBidInfo
+            .bidSection(UPDATED_BID_SECTION)
+            .bidder(UPDATED_BIDDER)
+            .validPrice(UPDATED_VALID_PRICE)
+            .basePrice(UPDATED_BASE_PRICE)
+            .benchmarkScore(UPDATED_BENCHMARK_SCORE)
+            .ranking(UPDATED_RANKING);
 
         restBidInfoMockMvc
             .perform(
@@ -358,12 +393,15 @@ class BidInfoResourceIT {
         assertThat(testBidInfo.getBidPrjName()).isEqualTo(DEFAULT_BID_PRJ_NAME);
         assertThat(testBidInfo.getBidSectionId()).isEqualTo(DEFAULT_BID_SECTION_ID);
         assertThat(testBidInfo.getBidSection()).isEqualTo(UPDATED_BID_SECTION);
-        assertThat(testBidInfo.getBidder()).isEqualTo(DEFAULT_BIDDER);
-        assertThat(testBidInfo.getBidPrice()).isEqualByComparingTo(UPDATED_BID_PRICE);
+        assertThat(testBidInfo.getBidder()).isEqualTo(UPDATED_BIDDER);
+        assertThat(testBidInfo.getBidPrice()).isEqualByComparingTo(DEFAULT_BID_PRICE);
         assertThat(testBidInfo.getAverageValue()).isEqualByComparingTo(DEFAULT_AVERAGE_VALUE);
-        assertThat(testBidInfo.getDeclineRatio()).isEqualByComparingTo(DEFAULT_DECLINE_RATIO);
-        assertThat(testBidInfo.getBasePrice()).isEqualByComparingTo(DEFAULT_BASE_PRICE);
-        assertThat(testBidInfo.getBenchmarkScore()).isEqualByComparingTo(DEFAULT_BENCHMARK_SCORE);
+        assertThat(testBidInfo.getValidPrice()).isEqualByComparingTo(UPDATED_VALID_PRICE);
+        assertThat(testBidInfo.getValidAverageValue()).isEqualByComparingTo(DEFAULT_VALID_AVERAGE_VALUE);
+        assertThat(testBidInfo.getDeclineRatio()).isEqualTo(DEFAULT_DECLINE_RATIO);
+        assertThat(testBidInfo.getBasePrice()).isEqualByComparingTo(UPDATED_BASE_PRICE);
+        assertThat(testBidInfo.getBenchmarkScore()).isEqualTo(UPDATED_BENCHMARK_SCORE);
+        assertThat(testBidInfo.getRanking()).isEqualTo(UPDATED_RANKING);
     }
 
     @Test
@@ -386,9 +424,12 @@ class BidInfoResourceIT {
             .bidder(UPDATED_BIDDER)
             .bidPrice(UPDATED_BID_PRICE)
             .averageValue(UPDATED_AVERAGE_VALUE)
+            .validPrice(UPDATED_VALID_PRICE)
+            .validAverageValue(UPDATED_VALID_AVERAGE_VALUE)
             .declineRatio(UPDATED_DECLINE_RATIO)
             .basePrice(UPDATED_BASE_PRICE)
-            .benchmarkScore(UPDATED_BENCHMARK_SCORE);
+            .benchmarkScore(UPDATED_BENCHMARK_SCORE)
+            .ranking(UPDATED_RANKING);
 
         restBidInfoMockMvc
             .perform(
@@ -409,9 +450,12 @@ class BidInfoResourceIT {
         assertThat(testBidInfo.getBidder()).isEqualTo(UPDATED_BIDDER);
         assertThat(testBidInfo.getBidPrice()).isEqualByComparingTo(UPDATED_BID_PRICE);
         assertThat(testBidInfo.getAverageValue()).isEqualByComparingTo(UPDATED_AVERAGE_VALUE);
-        assertThat(testBidInfo.getDeclineRatio()).isEqualByComparingTo(UPDATED_DECLINE_RATIO);
+        assertThat(testBidInfo.getValidPrice()).isEqualByComparingTo(UPDATED_VALID_PRICE);
+        assertThat(testBidInfo.getValidAverageValue()).isEqualByComparingTo(UPDATED_VALID_AVERAGE_VALUE);
+        assertThat(testBidInfo.getDeclineRatio()).isEqualTo(UPDATED_DECLINE_RATIO);
         assertThat(testBidInfo.getBasePrice()).isEqualByComparingTo(UPDATED_BASE_PRICE);
-        assertThat(testBidInfo.getBenchmarkScore()).isEqualByComparingTo(UPDATED_BENCHMARK_SCORE);
+        assertThat(testBidInfo.getBenchmarkScore()).isEqualTo(UPDATED_BENCHMARK_SCORE);
+        assertThat(testBidInfo.getRanking()).isEqualTo(UPDATED_RANKING);
     }
 
     @Test

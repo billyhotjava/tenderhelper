@@ -32,8 +32,16 @@
       "fieldType": "BigDecimal"
     },
     {
-      "fieldName": "declineRatio",
+      "fieldName": "validPrice",
       "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "validAverageValue",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "declineRatio",
+      "fieldType": "Double"
     },
     {
       "fieldName": "basePrice",
@@ -41,7 +49,11 @@
     },
     {
       "fieldName": "benchmarkScore",
-      "fieldType": "BigDecimal"
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "ranking",
+      "fieldType": "Integer"
     }
   ],
   "name": "BidInfo",

@@ -842,9 +842,9 @@
                 <!-- default Spring profiles -->
                 <spring.profiles.active>dev${profile.tls}${profile.no-liquibase}</spring.profiles.active>
                 <profile.test>testdev</profile.test>
-                <liquibase-plugin.url>jdbc:mysql://localhost:3306/tendermgmt</liquibase-plugin.url>
-                <liquibase-plugin.username>root</liquibase-plugin.username>
-                <liquibase-plugin.password/>
+                <liquibase-plugin.url>jdbc:mysql://localhost:3306/tenderhelper</liquibase-plugin.url>
+                <liquibase-plugin.username>mysql</liquibase-plugin.username>
+                <liquibase-plugin.password>Devops123!</liquibase-plugin.password>
             </properties>
             <dependencies>
                 <dependency>

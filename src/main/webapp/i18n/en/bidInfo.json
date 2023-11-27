@@ -8,7 +8,8 @@
         "deleteAllData": "Delete All Data",
         "createLabel": "Create a new Bid Info",
         "createOrEditLabel": "Create or edit a Bid Info",
-        "notFound": "No Bid Infos found"
+        "notFound": "No Bid Infos found",
+        "allSectionID": "All Sections"
       },
       "created": "A new Bid Info is created with identifier {{ param }}",
       "updated": "A Bid Info is updated with identifier {{ param }}",
@@ -27,9 +28,12 @@
       "bidder": "Bidder",
       "bidPrice": "Bid Price",
       "averageValue": "Average Value",
+      "validPrice": "Valid Price",
+      "validAverageValue": "Valid Average Value",
       "declineRatio": "Decline Ratio",
       "basePrice": "Base Price",
       "benchmarkScore": "Benchmark Score",
+      "ranking": "Ranking",
       "sectionType": "Section Type",
       "sectionTypeServer": "Computing Server",
       "sectionTypeStorage": "Storage Server",

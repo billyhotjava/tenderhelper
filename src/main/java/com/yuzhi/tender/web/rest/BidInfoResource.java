@@ -148,6 +148,13 @@ public class BidInfoResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/bid-infos/all")
+    public ResponseEntity<List<BidInfo>> getAllBidInfos() {
+        log.debug("REST request to get all BidInfos");
+        List<BidInfo> list = bidInfoService.findAll();
+        return ResponseEntity.ok().body(list);
+    }
+
     /**
      * {@code GET  /bid-infos/:id} : get the "id" bidInfo.
      *

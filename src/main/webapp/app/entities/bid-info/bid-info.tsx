@@ -26,7 +26,29 @@ export const BidInfo = () => {
     overridePaginationStateWithQueryParams(getPaginationState(pageLocation, ITEMS_PER_PAGE, 'id'), pageLocation.search),
   );
 
-  const bidInfoList = useAppSelector(state => state.bidInfo.entities);
+  //const bidInfoList = useAppSelector(state => state.bidInfo.entities);
+  /*
+  type BidInfo = {
+    bidSectionId: string;
+    // ... other properties ...
+  }*/
+  type BidInfo = {
+    id: number;
+    bidPrjId: string;
+    bidPrjName: string;
+    bidSectionId: string;
+    bidSection: string;
+    bidder: string;
+    bidPrice: number;
+    averageValue: number;
+    validPrice: number;
+    validAverageValue: number;
+    declineRatio: number;
+    basePrice: number;
+    benchmarkScore: number;
+    ranking: number;
+  };
+  const bidInfoList: BidInfo[] = useAppSelector(state => state.bidInfo.entities);
   const loading = useAppSelector(state => state.bidInfo.loading);
   const totalItems = useAppSelector(state => state.bidInfo.totalItems);
 
@@ -147,6 +169,15 @@ export const BidInfo = () => {
     deleteAllData();
   };
 
+  // 获取所有的bidSectionId作为下拉框的选项（确保是唯一的）
+  const [selectedBidSectionId, setSelectedBidSectionId] = useState('');
+  const uniqueBidSectionIds = [...new Set(bidInfoList.map(info => info.bidSectionId))];
+  const handleSelectionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedBidSectionId(event.target.value);
+  };
+
+  const filteredBidInfoList = selectedBidSectionId ? bidInfoList.filter(info => info.bidSectionId === selectedBidSectionId) : bidInfoList;
+
   return (
     <div>
       <h2 id="bid-info-heading" data-cy="BidInfoHeading">
@@ -204,6 +235,17 @@ export const BidInfo = () => {
           <Button color="primary" onClick={handleDeleteAllData}>
             <Translate contentKey="tenderhelperApp.bidInfo.home.deleteAllData">delete all data</Translate>
           </Button>
+          &nbsp; &nbsp;
+          <select className="mylabel" value={selectedBidSectionId} onChange={handleSelectionChange}>
+            <option value="">
+              <Translate contentKey="tenderhelperApp.bidInfo.home.allSectionID">Select a bidSectionId</Translate>
+            </option>
+            {uniqueBidSectionIds.map(bidSectionId => (
+              <option key={bidSectionId} value={bidSectionId}>
+                {bidSectionId}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="d-flex justify-content-end">
@@ -255,6 +297,14 @@ export const BidInfo = () => {
                   <Translate contentKey="tenderhelperApp.bidInfo.averageValue">Average Value</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('averageValue')} />
                 </th>
+                <th className="hand" onClick={sort('validPrice')}>
+                  <Translate contentKey="tenderhelperApp.bidInfo.validPrice">Valid Price</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('validPrice')} />
+                </th>
+                <th className="hand" onClick={sort('validAverageValue')}>
+                  <Translate contentKey="tenderhelperApp.bidInfo.validAverageValue">Valid Average Value</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('validAverageValue')} />
+                </th>
                 <th className="hand" onClick={sort('declineRatio')}>
                   <Translate contentKey="tenderhelperApp.bidInfo.declineRatio">Decline Ratio</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('declineRatio')} />
@@ -267,11 +317,15 @@ export const BidInfo = () => {
                   <Translate contentKey="tenderhelperApp.bidInfo.benchmarkScore">Benchmark Score</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('benchmarkScore')} />
                 </th>
+                <th className="hand" onClick={sort('ranking')}>
+                  <Translate contentKey="tenderhelperApp.bidInfo.ranking">Ranking</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('ranking')} />
+                </th>
                 <th />
               </tr>
             </thead>
             <tbody>
-              {bidInfoList.map((bidInfo, i) => (
+              {filteredBidInfoList.map((bidInfo, i) => (
                 <tr key={`entity-${i}`} data-cy="entityTable">
                   <td>
                     <Button tag={Link} to={`/bid-info/${bidInfo.id}`} color="link" size="sm">
@@ -285,9 +339,12 @@ export const BidInfo = () => {
                   <td>{bidInfo.bidder}</td>
                   <td>{Number(bidInfo.bidPrice).toFixed(6)}</td>
                   <td>{Number(bidInfo.averageValue).toFixed(6)}</td>
+                  <td>{bidInfo.validPrice}</td>
+                  <td>{bidInfo.validAverageValue}</td>
                   <td>{bidInfo.declineRatio}</td>
                   <td>{Number(bidInfo.basePrice).toFixed(6)}</td>
                   <td>{bidInfo.benchmarkScore}</td>
+                  <td>{bidInfo.ranking}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/bid-info/${bidInfo.id}`} color="info" size="sm" data-cy="entityDetailsButton">

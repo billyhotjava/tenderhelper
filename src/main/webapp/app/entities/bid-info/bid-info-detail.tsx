@@ -74,6 +74,18 @@ export const BidInfoDetail = () => {
           </dt>
           <dd>{bidInfoEntity.averageValue}</dd>
           <dt>
+            <span id="validPrice">
+              <Translate contentKey="tenderhelperApp.bidInfo.validPrice">Valid Price</Translate>
+            </span>
+          </dt>
+          <dd>{bidInfoEntity.validPrice}</dd>
+          <dt>
+            <span id="validAverageValue">
+              <Translate contentKey="tenderhelperApp.bidInfo.validAverageValue">Valid Average Value</Translate>
+            </span>
+          </dt>
+          <dd>{bidInfoEntity.validAverageValue}</dd>
+          <dt>
             <span id="declineRatio">
               <Translate contentKey="tenderhelperApp.bidInfo.declineRatio">Decline Ratio</Translate>
             </span>
@@ -91,6 +103,12 @@ export const BidInfoDetail = () => {
             </span>
           </dt>
           <dd>{bidInfoEntity.benchmarkScore}</dd>
+          <dt>
+            <span id="ranking">
+              <Translate contentKey="tenderhelperApp.bidInfo.ranking">Ranking</Translate>
+            </span>
+          </dt>
+          <dd>{bidInfoEntity.ranking}</dd>
         </dl>
         <Button tag={Link} to="/bid-info" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}
