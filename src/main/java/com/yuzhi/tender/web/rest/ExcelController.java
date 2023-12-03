@@ -1,9 +1,12 @@
 package com.yuzhi.tender.web.rest;
 
+import com.yuzhi.tender.service.BidInfoService;
 import com.yuzhi.tender.service.ExcelService;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,29 +25,43 @@ public class ExcelController {
     @Autowired
     private ExcelService excelService; // Assuming you have a service class for processing the Excel file
 
-    @PostMapping("/upload")
-    public ResponseEntity<Map<String, String>> handleFileUpload(@RequestParam("excel") MultipartFile file, HttpServletResponse response)
-        throws IOException {
-        // ... 其他处理代码 ...
+    @Autowired
+    private BidInfoService bidInfoService; // Assuming you have a service class for processing the Excel file
 
+    @PostMapping("/upload")
+    public ResponseEntity<?> confirmUploadAndData(@RequestParam("excel") MultipartFile file, @RequestParam Map<String, String> mapFields) {
         try {
-            // ... 你的Excel处理代码 ...
-            log.debug("=========== Begin to process Excel =============");
+            //---首先删除之前的计算过的数据---
+            bidInfoService.deleteAll();
+
+            // 这里处理带有键值对的确认请求和Excel处理代码
+            log.debug("========== Begin to process Excel =============");
             if (file.isEmpty()) {
                 //return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseBody);
             }
-            excelService.processExcelFile(file); // Process the uploaded Excel file
-            // 当成功处理完Excel后
-            Map<String, String> responseBody = new HashMap<>();
-            responseBody.put("message", "File processed successfully!");
+            //打印所有接收到的键值对
+            log.debug("========== Get all maps of label and head =============");
+            mapFields.forEach((key, value) -> log.debug("(Key:" + key + ";Value: " + value + ")"));
 
-            return ResponseEntity.ok(responseBody);
+            excelService.processExcelFile(file, mapFields); // Process the uploaded Excel file
+            // 使用 request.getParameterMap() 或类似方法获取其他表单字段
         } catch (Exception e) {
-            // 处理发生异常的情况
-            Map<String, String> responseBody = new HashMap<>();
-            responseBody.put("message", "Error processing the file: " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().build();
+        }
+        return ResponseEntity.ok().build();
+    }
 
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseBody);
+    @PostMapping("/heads")
+    public ResponseEntity<List<String>> fetchHeadData(@RequestParam("excel") MultipartFile file, HttpServletResponse response) {
+        try {
+            List<String> headers;
+            //获取Excel的第一个sheet的第一行的所有标题
+            headers = excelService.fetchHeadData(file);
+            return ResponseEntity.ok(headers);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().build();
         }
     }
 }

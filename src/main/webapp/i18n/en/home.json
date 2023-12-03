@@ -3,8 +3,10 @@
     "title": "Welcome, Tender Helper!",
     "subtitle": "This is your homepage",
     "helper": "Welcome to Tender Helper",
+    "importWarning": "Warning：!After importing new data, the original calculated data will be cleared.View original data,pls click:",
     "chooser": "Please choose local excel file",
     "uploadbtn": "Please upload",
+    "uploadConfirmbtn": "Confirm Upload",
     "logged": {
       "message": "You are logged in as user \"{{username}}\"."
     },
@@ -19,6 +21,15 @@
     "like": "If you like Helper , don't forget to give us a star on",
     "github": "GitHub",
     "excel": "Excel File",
-    "excellink": "Click here to upload Excel File"
+    "excellink": "Click here to upload Excel File",
+    "excelItem": {
+      "bidPrjId": "Bid Project ID",
+      "bidPrjName": "Bid Project Name",
+      "bidSectionId": "Bid Section ID",
+      "bidSection": "Bid Section Name",
+      "bidder": "Bidder",
+      "bidPrice": "Bid Price"
+    },
+    "uploadProcessingIssue": "File uploaded, but there was an issue processing it."
   }
 }

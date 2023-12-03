@@ -66,6 +66,7 @@ public class SecurityConfiguration {
                 // prettier-ignore
                 authz
                     .requestMatchers(mvc.pattern("/api/upload")).permitAll()
+                    .requestMatchers(mvc.pattern("/api/heads")).permitAll()
                     .requestMatchers(mvc.pattern("/api/bid-infos/batch-computing")).permitAll()
                     .requestMatchers(mvc.pattern("/api/bid-infos/deleteAllData")).permitAll()
                     .requestMatchers(mvc.pattern("/index.html"), mvc.pattern("/*.js"), mvc.pattern("/*.map"), mvc.pattern("/*.css")).permitAll()

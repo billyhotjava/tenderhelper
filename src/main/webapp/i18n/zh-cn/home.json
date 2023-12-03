@@ -3,8 +3,10 @@
     "title": "欢迎, 投标助手!",
     "subtitle": "这里是首页",
     "helper": "欢迎来到投标助手,请导入数据",
+    "importWarning": "!!!注意：导入数据后，之前计算过的数据会清空。如果只查看计算过的数据，请点击：",
     "chooser": "请选择本地的Excel文件",
-    "uploadbtn": "请导入",
+    "uploadbtn": "请关联目标字段",
+    "uploadConfirmbtn": "确认上传",
     "logged": {
       "message": "您目前是以 \"{{username}}\" 账号登录."
     },
@@ -19,6 +21,15 @@
     "like": "如果您喜欢 Helper, 请记得给我们加星在",
     "github": "GitHub",
     "excel": "Excel 文件地址",
-    "excellink": "点击这里上传 Excel"
+    "excellink": "点击这里上传 Excel",
+    "excelItem": {
+      "bidPrjId": "项目编号",
+      "bidPrjName": "项目名称",
+      "bidSectionId": "分标包号",
+      "bidSection": "分标包名称",
+      "bidder": "投标人",
+      "bidPrice": "投标总价"
+    },
+    "uploadProcessingIssue": "文件已经上传并成功导入了数据，但是处理过程中出现了异常，请到投标页面查看详细的数据"
   }
 }

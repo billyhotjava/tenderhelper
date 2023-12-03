@@ -8,3 +8,11 @@ Main page styles
   background: url('/content/images/tj.png') no-repeat center top;
   background-size: contain;
 }
+.fixed-width-span {
+  width: 100px;
+  display: none; /* 使<span>可以接受宽度设置 */
+}
+
+.fixed-width-select {
+  width: 100px;
+}

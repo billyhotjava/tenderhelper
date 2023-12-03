@@ -8,7 +8,7 @@
       "entities": {
         "main": "数据",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "bidInfo": "Bid Info"
+        "bidInfo": "投标数据"
       },
       "account": {
         "main": "账号",
