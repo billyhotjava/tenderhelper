@@ -37,8 +37,11 @@
       "sectionType": "分标类型",
       "sectionTypeServer": "服务器",
       "sectionTypeStorage": "存储",
+      "sectionTypeSec": "安全设备",
       "n1Value": "N1值",
-      "n2Value": "N2值"
+      "n2Value": "N2值",
+      "n3Value": "N3值",
+      "n4Value": "N4值"
     }
   }
 }

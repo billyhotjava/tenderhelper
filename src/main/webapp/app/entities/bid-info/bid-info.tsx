@@ -21,6 +21,8 @@ export const BidInfo = () => {
   const [declineRatio, setDeclineRatio] = useState(0.03);
   const [n1, setN1] = useState(1.4);
   const [n2, setN2] = useState(0.7);
+  const [n3, setN3] = useState(1.0);
+  const [n4, setN4] = useState(0.5);
 
   const [paginationState, setPaginationState] = useState(
     overridePaginationStateWithQueryParams(getPaginationState(pageLocation, ITEMS_PER_PAGE, 'id'), pageLocation.search),
@@ -220,6 +222,22 @@ export const BidInfo = () => {
           </label>
           <select className="myselect mr-3" id="n2Select" value={n2} onChange={e => setN2(parseFloat(e.target.value))}>
             <option value="0.7">0.7</option>
+          </select>
+          &nbsp; &nbsp;
+          {/* n3 Dropdown */}
+          <label className="mylabel" htmlFor="n3Select">
+            <Translate contentKey="tenderhelperApp.bidInfo.n3Value">n3Value</Translate>:
+          </label>
+          <select className="myselect mr-3" id="n3Select" value={n3} onChange={e => setN3(parseFloat(e.target.value))}>
+            <option value="1.0">1.0</option>
+          </select>
+          &nbsp; &nbsp;
+          {/* n4 Dropdown */}
+          <label className="mylabel" htmlFor="n4Select">
+            <Translate contentKey="tenderhelperApp.bidInfo.n4Value">n4Value</Translate>:
+          </label>
+          <select className="myselect mr-3" id="n4Select" value={n2} onChange={e => setN4(parseFloat(e.target.value))}>
+            <option value="0.5">0.5</option>
           </select>
           &nbsp; &nbsp;
           <Button color="primary" onClick={handleStartCompute}>
