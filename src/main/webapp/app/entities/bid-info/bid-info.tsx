@@ -190,6 +190,9 @@ export const BidInfo = () => {
             <option value="storage">
               <Translate contentKey="tenderhelperApp.bidInfo.sectionTypeStorage">Storage</Translate>
             </option>
+            <option value="security">
+              <Translate contentKey="tenderhelperApp.bidInfo.sectionTypeSec">cyber security</Translate>
+            </option>
           </select>
           &nbsp; &nbsp;
           {/* Ratio Dropdown */}
