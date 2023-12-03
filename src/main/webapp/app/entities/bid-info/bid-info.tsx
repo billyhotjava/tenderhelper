@@ -26,12 +26,6 @@ export const BidInfo = () => {
     overridePaginationStateWithQueryParams(getPaginationState(pageLocation, ITEMS_PER_PAGE, 'id'), pageLocation.search),
   );
 
-  //const bidInfoList = useAppSelector(state => state.bidInfo.entities);
-  /*
-  type BidInfo = {
-    bidSectionId: string;
-    // ... other properties ...
-  }*/
   type BidInfo = {
     id: number;
     bidPrjId: string;

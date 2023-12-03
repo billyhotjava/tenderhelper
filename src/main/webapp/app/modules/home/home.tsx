@@ -15,9 +15,7 @@ export const Home = () => {
   const [downloadLink, setDownloadLink] = useState<string | null>(null);
   const [message, setMessage] = useState('');
 
-  //Excel fixed head list
   const labels = ['bidPrjId', 'bidPrjName', 'bidSectionId', 'bidSection', 'bidder', 'bidPrice'];
-
   // 假设这个函数是从某处获取headslist数据
   const [headslist, setHeadslist] = useState([]);
   const [selections, setSelections] = useState({});
@@ -82,11 +80,6 @@ export const Home = () => {
     for (const [key, value] of Object.entries(selections)) {
       formData.append(key, String(value));
     }
-    // 打印每个键和值
-    for (const entry of formDataAny.entries()) {
-      console.log(entry[0] + ': ' + entry[1]);
-    }
-
     fetch('/api/upload', {
       method: 'POST',
       body: formData,
